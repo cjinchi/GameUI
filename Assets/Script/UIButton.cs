@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIButton : MonoBehaviour {
+    public UIController ui;
+
+    public ButtonType buttonType;
 
     public Image backgroud;
     public Text text;

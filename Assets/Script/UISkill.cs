@@ -3,59 +3,76 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-enum State { WATING,SKILL_SELECTED, }
-
-
 public class UISkill : MonoBehaviour {
 
     public UIController ui;
 
-    public SkillType skillNum;    //第几技能
+    public SkillType type;
 
     //UI
     public Image outline;
     public Image cd;
+    public Image skill;
 
     //
     public static UISkill currentSelected = null;
 
-	void Start () {
+    void Start() {
         outline.enabled = false;
         cd.enabled = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
-    void SetCd(){
+    // Update is called once per frame
+    void Update() {
+
+    }
+
+    void SetCd() {
         outline.enabled = false;
         cd.enabled = true;
     }
 
-    public void Selecte(){
+    public void Select() {
+
         if (currentSelected != null) {
             return;
         }
 
-        currentSelected = this;
-        //Set UI
-        outline.enabled = true;
-        cd.enabled = false;
-
-        //Show buttons according to role and skill
-        //...
-
-        //Show intro
-        string introText;
-        switch (ui.currentRole) {
-            default:
-                introText = "HelloWorld";
-                break;
+        if(cd.enabled == true) {
+            Debug.Assert(false, "select when cd");
         }
-        ui.intro.Show(introText);
+
+        currentSelected = this;
+
+        //Set Skill UI
+        outline.enabled = true;
+
+        //Set Global UI
+        ui.UpdateUIWhenSkillSelect(currentSelected.type);
+
+    }
+
+    public void SwitchTypeTo(SkillType type) {
+        this.type = type;
+        skill.sprite = ui.GetSkillSprite(type);
+    }
+
+    public void CancelSelect() {
+        currentSelected = null;
+
+        outline.enabled = false;
+        ui.okButton.SetEnabled(false);
+        ui.cancelButton.SetEnabled(false);
+        ui.intro.Hide();
 
 
+        //DEBUG
+        ui.circle.enabled = false;
+    }
+
+    public static void CancelAnySelect() {
+        if (currentSelected != null) {
+            currentSelected.CancelSelect();
+        }
     }
 }
