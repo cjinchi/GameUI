@@ -19,3 +19,8 @@ public enum SkillType {
     //KeXueGuaiRen
     KeXueGuaiRenAttack, Charge, Teleport
 }
+
+
+public enum BuffType {
+
+}

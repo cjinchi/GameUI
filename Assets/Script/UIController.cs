@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour {
     public UIRole roleFour;
 
     public Image leftPicutre;   //角色立绘
+    //TODO: Remove
     public Image rightPicture;  //敌方立绘
 
     public UISkill skillOne;
@@ -57,7 +58,7 @@ public class UIController : MonoBehaviour {
 
     //!!! End: Sprite Resource
 
-    //!!!End: DEBUG
+    //!!!Begin: DEBUG
     //TODO:REMOVE
     public Image me;
     public Image you;
@@ -242,7 +243,8 @@ public class UIController : MonoBehaviour {
             cancelButton.SetEnabled(true);
         }else if(type==SkillType.Heal
             ||type==SkillType.WingShield
-            ||type == SkillType.Evolve) {
+            ||type == SkillType.Evolve
+            ||type ==  SkillType.Charge) {
             okButton.SetEnabled(true);
             cancelButton.SetEnabled(true);
         }else if (type == SkillType.MagenticArrow) {
