@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class UIBuff : MonoBehaviour {
 
-    public Image buffOne;
-    public Image buffTwo;
-    public Image buffThree;
-    public Image buffFour;
+    //public Image buffOne;
+    //public Image buffTwo;
+    //public Image buffThree;
+    //public Image buffFour;
+
+    public Image[] buffs = new Image[4];
 
 	// Use this for initialization
 	void Start () {
@@ -20,32 +22,16 @@ public class UIBuff : MonoBehaviour {
 		
 	}
 
-    public void setBuffs(Sprite[] buffs) {
-        hideAll();
-        if (buffs.Length > 0) {
-            buffOne.sprite = buffs[0];
-            buffOne.enabled = true;
-        }
-        if (buffs.Length > 1) {
-            buffTwo.sprite = buffs[1];
-            buffTwo.enabled = true;
-        }
-        if (buffs.Length > 2) {
-            buffThree.sprite = buffs[2];
-            buffThree.enabled = true;
-        }
-        if(buffs.Length > 3) {
-            buffFour.sprite = buffs[3];
-            buffFour.enabled = true;
+    public void setBuffs(Sprite[] buffSprite) {
 
+        for(int i = 0; i < buffs.Length; i++) {
+            if (i >= buffSprite.Length) {
+                buffs[i].enabled = false;
+            } else {
+                buffs[i].sprite = buffSprite[i];
+                buffs[i].enabled = true;
+            }
         }
     }
 
-    public void hideAll() {
-        buffOne.enabled = false;
-        buffTwo.enabled = false;
-        buffThree.enabled = false;
-        buffFour.enabled = false;
-
-    }
 }

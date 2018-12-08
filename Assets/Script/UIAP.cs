@@ -9,6 +9,8 @@ public class UIAP : MonoBehaviour {
     public Text currentAP;
     public Text totalAP;
 
+
+
 	// Use this for initialization
 	void Start () {
 		

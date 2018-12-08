@@ -32,6 +32,18 @@ public class UIController : MonoBehaviour {
     public UISkill skillTwo;
     public UISkill skillThree;
 
+    public UIBuff roleOneBuff;
+    public UIBuff roleTwoBuff;
+    public UIBuff roleThreeBuff;
+    public UIBuff roleFourBuff;
+
+    public UIEnemy enemyOne;
+    public UIEnemy enemyTwo;
+    public UIEnemy enemyThree;
+    public UIEnemy enemyFour;
+    public UIEnemy enemyFive;
+    public UIEnemy enemySix;
+
     //!!! End: Instance of ui element
 
 

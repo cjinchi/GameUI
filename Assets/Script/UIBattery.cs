@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class UIBattery : MonoBehaviour {
     public UIController ui;
 
+    public Image batteryOneBackgroud;
+    public Image batteryTwoBackgroud;
+
     public Image batteryOne;
     public Image batteryTwo;
 
@@ -20,10 +23,12 @@ public class UIBattery : MonoBehaviour {
 	}
 
     public void ShowBatteryNumber(BatteryNumberType num) {
+        batteryOneBackgroud.enabled = true;
+        batteryTwoBackgroud.enabled = true;
         switch (num) {
             case BatteryNumberType.Zero:
                 batteryOne.enabled = false;
-                batteryTwo.enabled = false;
+                batteryOne.enabled = false;
                 break;
             case BatteryNumberType.One:
                 batteryOne.enabled = true;
@@ -37,6 +42,8 @@ public class UIBattery : MonoBehaviour {
     }
 
     public void Hide() {
+        batteryOneBackgroud.enabled = false;
+        batteryTwoBackgroud.enabled = false;
         batteryOne.enabled = false;
         batteryTwo.enabled = false;
     }
