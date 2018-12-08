@@ -43,7 +43,6 @@ public class UIController : MonoBehaviour {
     public UIEnemy enemyFour;
     public UIEnemy enemyFive;
     public UIEnemy enemySix;
-
     //!!! End: Instance of ui element
 
 
@@ -80,6 +79,7 @@ public class UIController : MonoBehaviour {
 
 
 
+    
     // Use this for initialization
     void Start () {
 
@@ -287,6 +287,48 @@ public class UIController : MonoBehaviour {
         if(circle.enabled == true) {
             circle.enabled = false;
             UISkill.CancelAnySelect();
+        }
+
+    }
+
+    public static SkillType IdToSkillType(int id) {
+        switch (id) {
+            case 11:return SkillType.YiShengAttack;
+            case 12:return SkillType.PoisonCloud;
+            case 13:return SkillType.Heal;
+            case 21:return SkillType.XiXueGuiAttack;
+            case 22:return SkillType.WingShield;
+            case 23:return SkillType.Evolve;
+            case 31:return SkillType.LieRenAttack;
+            case 32:return SkillType.MagenticArrow;
+            case 33:return SkillType.ChainArrow;
+            case 41:return SkillType.KeXueGuaiRenAttack;
+            case 42:return SkillType.Charge;
+            case 43:return SkillType.Teleport;
+            default:
+                Debug.Assert(false, "error when IdToSkillType");
+                return SkillType.KeXueGuaiRenAttack;
+        }
+        
+    }
+
+    public static int skillTypeToId(SkillType skill) {
+        switch (skill) {
+            case SkillType.YiShengAttack:return 11;
+            case SkillType.PoisonCloud:return 12;
+            case SkillType.Heal:return 13;
+            case SkillType.XiXueGuiAttack:return 21;
+            case SkillType.WingShield:return 22;
+            case SkillType.Evolve:return 23;
+            case SkillType.LieRenAttack:return 31;
+            case SkillType.MagenticArrow:return 32;
+            case SkillType.ChainArrow:return 33;
+            case SkillType.KeXueGuaiRenAttack:return 41;
+            case SkillType.Charge:return 42;
+            case SkillType.Teleport:return 43;
+            default:
+                Debug.Assert(false, "in skillTypeToId");
+                return -1;
         }
 
     }

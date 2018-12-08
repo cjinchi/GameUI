@@ -13,6 +13,11 @@ public class UIRole : MonoBehaviour {
     public Slider HP;
     public Slider SAN;
 
+    private int hpMaxValue;
+    private int hpValue;
+    private int sanMaxValue;
+    private int sanValue;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -20,16 +25,25 @@ public class UIRole : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        HP.maxValue = hpMaxValue;
+        HP.value = hpValue;
+        SAN.maxValue = sanMaxValue;
+        SAN.value = sanValue;
+    }
 
     public void SetHP(int maxValue,int value) {
-        HP.maxValue = maxValue;
-        HP.value = value;
+        hpMaxValue = maxValue;
+        hpValue = value;
+        //Update();
+        //HP.maxValue = maxValue;
+        //HP.value = value;
     }
 
     public void SetSAN(int maxValue, int value) {
-        SAN.maxValue = maxValue;
-        SAN.value = value;
+        //SAN.maxValue = maxValue;
+        //SAN.value = value;
+        sanMaxValue = maxValue;
+        sanValue = value;
+        Update();
     }
 }
